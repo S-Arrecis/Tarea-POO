@@ -2,13 +2,15 @@
 
 class Empleado:Persona{
 
-    private: string codigo_empleado;
+    private: string codigo_empleado,sueldo,puesto;
 
     public:
         Empleado(){}
-        Empleado(string Nombre,string Apellido,string Celular,string Direccion,string Codigo_empleado):Persona(Nombre,Apellido,Celular,Direccion){
+        Empleado(string Nombre,string Apellido,string Celular,string Direccion,string Codigo_empleado,string Sueldo,string Puesto):Persona(Nombre,Apellido,Celular,Direccion){
 
             codigo_empleado = Codigo_empleado;
+            sueldo= Sueldo;
+            puesto = Puesto;
         }
 
         void Mostrar(){
@@ -17,7 +19,9 @@ class Empleado:Persona{
             cout<<"Nombre: "<<nombres<<endl;
             cout<<"Apellidos: "<<apellidos<<endl;
             cout<<"Direccion: "<<direccion<<endl;
-            cout<<"Celular: "<<celular;
+            cout<<"Celular: "<<celular<<endl;
+            cout<<"Puesto: "<<puesto<<endl;
+            cout<<"Sueldo: Q. "<<sueldo<<endl;
             cout<<"\n"<<endl;
         }
     //editar datos
@@ -27,6 +31,8 @@ class Empleado:Persona{
     void SetDireccion(string Direccion){direccion = Direccion;}
     void SetCelular(string Celular){celular = Celular;}
     void SetCodigoEmpleado(string Codigo_empleado){codigo_empleado = Codigo_empleado;}
+    void SetPuesto(string Puesto){puesto = Puesto;}
+    void SetSueldo(string Sueldo){sueldo = Sueldo;}
 
 
     //Mostrar datos
@@ -35,6 +41,8 @@ class Empleado:Persona{
     string GetDireccion(){return direccion;}
     string GetCelular(){return celular;}
     string GetCodigoEmpleado(){return codigo_empleado;}
+    string GetPuesto(){return puesto;}
+    string GetSueldo(){return sueldo;}
     
 };
 

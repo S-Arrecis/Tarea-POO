@@ -8,7 +8,7 @@ void editarEmpleado();
 void editarCliente();
 
 //variables globales
-string nombre,apellido,celular,direccion,dato;
+string nombre,apellido,celular,direccion,dato,puesto,sueldo;
 //inicializando constructores
 Empleado empleado = Empleado();
 Cliente cliente = Cliente();
@@ -17,7 +17,7 @@ Cliente cliente = Cliente();
 int main(){
     
     DatosEmpleado();
-    empleado = Empleado(nombre,apellido,celular,direccion,dato);
+    empleado = Empleado(nombre,apellido,celular,direccion,dato,sueldo,puesto);
     DatosCliente();
     cliente = Cliente(nombre,apellido,celular,direccion,dato);
     menu();
@@ -89,6 +89,11 @@ void DatosEmpleado(){
     cin>>celular;
     cout<<"Digite su codigo de empleado: ";
     cin>>dato;
+    fflush(stdin);
+    cout<<"Digite su Puesto: ";
+    getline(cin,puesto);
+    cout<<"Digite su Sueldo: Q";
+    cin>>sueldo;
 }
 
 void DatosCliente(){
@@ -121,6 +126,8 @@ void editarEmpleado(){
         cout<<"3. Editar Direccion. "<<endl;
         cout<<"4. Editar Celular. "<<endl;
         cout<<"5. Editar Codigo de Empleado. "<<endl;
+        cout<<"6. Editar Puesto. "<<endl;
+        cout<<"7. Editar Sueldo. "<<endl;
         cout<<"99 <--- Regresar."<<endl;
         cout<<"\n\tDigite una opcion: ";
         cin>>opcion;
@@ -150,7 +157,14 @@ void editarEmpleado(){
             case 5:fflush(stdin); cout<<"Digite el  Nuevo Codigo de empleado: "; cin>>dato; 
             empleado.SetCodigoEmpleado(dato); cout<<"\n\n\tDATOS GUARDADOS..\n"<<endl;
             editarEmpleado(); break;
+
+            case 6: fflush(stdin); cout<<"Digite el nuevo Puesto: "; getline(cin,puesto);
+            empleado.SetPuesto(puesto); cout<<"\n\n\tDATOS GUARDADOS..\n"<<endl;
+            editarEmpleado(); break; 
             
+            case 7: fflush(stdin); cout<<"Digite el nuevo sueldo "; cin>>sueldo;
+            empleado.SetSueldo(sueldo); cout<<"\n\n\tDATOS GUARDADOS..\n"<<endl;
+            editarEmpleado(); break; 
             case 99: menu(); break;
             
             default: editarEmpleado();
